@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>株式会社 LiNew</title>
+  <link rel="stylesheet" type="text/css" href="base.css">
+  <meta name="viewport" content="width=device-width" />
+  <script src="https://kit.fontawesome.com/25f930df92.js" crossorigin="anonymous"></script>
+  <!--jq-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script>
+    $(function(){
+     
+      //img　切り替え
+      $("#main-img img:not(:first-child)").hide();
+      setInterval(function() {
+        $("#main-img img:first-child").fadeOut(3000).next("img").fadeIn(3000).end().appendTo("#main-img");
+      },3000); 
+
+
+      //スクロール
+      function fadeUpAnime() {
+        $('.fadeUp-data').each(function(){
+          var elemPosTop = $(this).offset().top;
+          var elemPosBottom = $(this).offset().top + $(this).height();
+          var scroll = $(window).scrollTop();
+          var windowHeight = $(window).height();
+          if (scroll >= elemPosTop - windowHeight + 50 && scroll <= elemPosBottom - 50) {
+            $(this).addClass('fadeUp');
+          } else {
+            $(this).removeClass('fadeUp');
+          }
+        });
+      }
+
+      function fadeDownAnime() {
+        $('.fadeDown-data').each(function(){
+          var elemPosTop = $(this).offset().top;
+          var elemPosBottom = $(this).offset().top + $(this).height();
+          var scroll = $(window).scrollTop();
+          var windowHeight = $(window).height();
+          if (scroll >= elemPosTop - windowHeight + 50 && scroll <= elemPosBottom - 50) {
+            $(this).addClass('fadeDown');
+          } else {
+            $(this).removeClass('fadeDown');
+          }
+        });
+      }
+
+      function fadeRightAnime() {
+        $('.fadeRight-data').each(function(){
+          var elemPosTop = $(this).offset().top;
+          var elemPosBottom = $(this).offset().top + $(this).height();
+          var scroll = $(window).scrollTop();
+          var windowHeight = $(window).height();
+          if (scroll >= elemPosTop - windowHeight + 50 && scroll <= elemPosBottom - 50) {
+            $(this).addClass('fadeRight');
+          } else {
+            $(this).removeClass('fadeRight');
+          }
+        });
+      }
+
+      $(window).scroll(function() {
+        fadeUpAnime();
+        fadeDownAnime();
+        fadeRightAnime();
+      });
+
+      $(window).ready(function() {
+        fadeUpAnime();
+        fadeDownAnime();
+        fadeRightAnime();
+      });
+
+
+      //slideMenu
+      $('#hamburger').click(function(){
+          if($(this).hasClass('close')){
+            $(this).removeClass('close');
+            $(this).addClass('open');
+            $('#slideMenu').removeClass('slideMenu-active');
+          } else {
+            $(this).addClass('close');
+            $(this).removeClass('open');
+            $('#slideMenu').addClass('slideMenu-active');
+          }
+        });
+
+
+      
+      //文字色変更
+     $('.change').hover(
+        function() {
+          $(this).addClass('color-change');
+        },
+        function() {
+          $(this).removeClass('color-change');
+        });
+
+
+
+        //Google maps hover
+      $('.map').hover(
+        function() {
+          $(this).removeClass('map');
+          $(this).addClass('color-dark');
+        },
+        function() {
+          $(this).addClass('map');
+          $(this).removeClass('color-dark');
+        });
+      
+
+
+      //main icon
+        $('.slideRight-data').hover(
+         function() {
+           $(this).addClass('slideRight');
+         },
+         function() {
+           $(this).removeClass('slideRight');
+        });
+
+
+        $('.otherRight-data').hover(
+          function() {
+            $('.otherRight-data i').addClass('otherRight');
+          },
+          function(){
+            $('.otherRight-data i').removeClass('otherRight');
+          });
+
+
+
+        //job back1
+        $('#color-back1').hover(
+          function() {
+            $(this).addClass('back-change');
+            $(this).css('color','white');
+            $('#white1').css('color','white');
+          },
+          function() {
+            $(this).removeClass('back-change');
+            $(this).css('color','black');
+            $('#white1').css('color','#2da690');
+          });
+
+          //job back2
+        $('#color-back2').hover(
+          function() {
+            $(this).addClass('back-change');
+            $(this).css('color','white');
+            $('#white2').css('color','white');
+          },
+          function() {
+            $(this).removeClass('back-change');
+            $(this).css('color','black');
+            $('#white2').css('color','#2da690');
+          });
+
+          //job back3
+        $('#color-back3').hover(
+          function() {
+            $(this).addClass('back-change');
+            $(this).css('color','white');
+            $('#white3').css('color','white');
+          },
+          function() {
+            $(this).removeClass('back-change');
+            $(this).css('color','black');
+            $('#white3').css('color','#2da690');
+          });
+
+
+
+      //footer icon 1つ目
+      $('#back-color1').hover(
+        function() {
+          $(this).addClass('back-change');
+          $('#icon1').css('color','white');
+        },
+        function() {
+          $(this).removeClass('back-change');
+          $('#icon1').css('color',' #2da690');
+        });
+
+        //footer icon 2つ目
+        $('#back-color2').hover(
+        function() {
+          $(this).addClass('back-change');
+          $('#icon2').css('color','white');
+        },
+        function() {
+          $(this).removeClass('back-change');
+          $('#icon2').css('color',' #2da690');
+        });
+        
+        //footer icon 3つ目
+        $('#back-color3').hover(
+        function() {
+          $(this).addClass('back-change');
+          $('#icon3').css('color','white');
+        },
+        function() {
+          $(this).removeClass('back-change');
+          $('#icon3').css('color',' #2da690');
+        });
+        
+
+    });
+  </script>
+</head>
+<body>
+<!--html-->
+  <div id = "top">
+    <header class = "fadeDown-data">
+      <div class = "wrap">
+        <img src="./image/logo_green.png" alt="header-logo">
+        <nav>
+          <ul>
+            <li><a class = "change">News</a></li>
+            <li><a class = "change">About</a></li>
+            <li><a class = "change">Service</a></li>
+            <li><a class = "change">Recruit</a></li>
+            <li><a class = "change">Contact</a></li>
+            </ul>
+          </nav>
+      </div>
+      <div id = "hamburger">
+        <span class = "bar" id = "bar-top"></span>
+        <span class = "bar" id = "bar-middle"></span>
+        <span class = "bar" id = "bar-bottom"></span>
+      </div>
+    </header>
+    <nav id = "slideMenu">
+      <ul>
+        <li>News</li>
+        <li>About</li>
+        <li>Service</li>
+        <li>Recruit</li>
+        <li>Contact</li>
+      </ul>
+    </nav>
+    <div id = "main-visual">
+      <div id = "main-img">
+        <img src="./image/IMG_0218-4.jpeg" alt="1">
+        <img src="./image/IMG_0224-1.jpeg" alt="2">
+        <img src="./image/IMG_0242-1.jpeg" alt="3">
+        <img src="./image/IMG_0256.jpeg" alt="4">
+        <img src="./image/IMG_0258-1.jpeg" alt="5">
+      </div>
+    </div>
+    <p class = "fadeUp-data">世の中の課題をITで解決し、<span>関わった世界中の人たちを幸せにする</span></p>
+  </div>
+  <main>
+    <!--service-->
+      <div id = "service">
+        <h1 class = "fadeDown-data">Our Service</h1>
+        <!--1つ目-->
+        <li id = "service-item1">
+        <img src="./image/educure01.jpg" alt="educure01" class = "service-img fadeUp-data">
+        <a class = "fadeUp-data">
+          <img src="./image/black.png" alt="educure-logo">
+          <p class = "title">DXを推進するエンジニア育成</p>
+          <p class = "sub">IT事業参入をご検討中の事業者様向けのサービスです。</p>
+          <i class="fa-sharp fa-solid fa-arrow-up-right-from-square slideRight-data"></i>
+        </a>
+      </li>
+      <!--2つ目-->
+      <li id = "service-item2">
+        <a class = "fadeUp-data">
+          <img src="./image/logo.png" alt="techpassion02">
+          <p class = "title">未経験から本気でエンジニアへ</p>
+          <p class = "sub">「未経験から本気でエンジニア」を目指すプログラミングスクールです。</p>
+          <i class="fa-sharp fa-solid fa-arrow-up-right-from-square slideRight-data"></i>
+        </a>
+        <img src="./image/techpassion01.jpg" alt="techpassion01" class = "service-img fadeUp-data">
+      </li>
+      <!--3つ目-->
+      <li id = "service-item3">
+        <img src="./image/6c40ac7b707e13491fda6a6b4f02d82d.jpg" alt="redfine01" class = "service-img fadeUp-data">
+        <a class = "fadeUp-data">
+          <img src="./image/abb886337b510d088a858a59a12bf114.png" alt="redfine02">
+          <p class = "title">人生を変える英会話アプリ</p>
+          <p class = "sub">登録者数訳25万人!YouTuber講師ジョージ監修!オンライン英会話アプリ!</p>
+          <i class="fa-sharp fa-solid fa-arrow-up-right-from-square slideRight-data"></i>
+        </a>
+      </li>
+      <div class = "wrap">
+        <a class = "other fadeRight-data change otherRight-data">
+          Other service
+          <i class="fa-sharp fa-solid fa-circle-right circle-sign"></i>
+        </a>
+      </div>
+    </div>
+    <!--vision-->
+    <div id = "vision">
+      <div class = "wrap">
+        <h1 class = "fadeDown-data">Our Vision</h1>
+        <h2 class = "fadeUp-data">世の中の課題をITで解決して、<br>関わった<span>世界中の人たちを幸せにする</span></h2>
+        <ul class = "fadeUp-data">
+          <li>
+            <p class = "title">ITを通じて<br>人々の可能性を広げる</p>
+            <p class = "sub">イノベーションを起こし新たな価値を創造する</p>
+          </li>
+          <li>
+            <p class = "title">世界を代表する<br>自社サービスを作る</p>
+            <p class ="sub">世の中にインパクトを与える</p>
+          </li>
+          <li>
+            <p class = "title">世界から選ばれる<br>企業へ</p>
+            <p class = "sub">常に最高のパフォーマンスを発揮します</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!--news-->
+    <div id = "news">
+      <div class = "wrap">
+        <h1 class = "fadeDown-data">News</h1>
+       <!--1つ目-->
+        <li class = "news-wrapper fadeUp-data">
+          <img src="./image/prtimes.png" alt="prtimes">
+          <div class = "news-content">
+            <div class = "news-item">
+              <time>2022-06-03</time>
+              <a>プレスリリース</a>
+              <a>メディア</a>
+              <a>自社サービス</a>
+            </div>
+            <div class = "news-title">
+              <a class = "change">【プレスリリース】ニーズが増大するAIや機械学習エンジニアの人材不足を解決</a>
+            </div>
+          </div>
+        </li>
+       <!--2つ目-->
+        <li class = "news-wrapper fadeUp-data">
+          <img src="./image/prtimes.png" alt="prtimes">
+          <div class = "news-content">
+            <div class = "news-item">
+              <time>2022-06-03</time>
+              <a>プレスリリース</a>
+              <a>メディア</a>
+              <a>自社サービス</a>
+            </div>
+            <div class = "news-title">
+              <a class = "change">【プレスリリース】完全オーダーメイド型英会話アプリ『RedFire』クラウドファウンディングを始動</a>
+            </div>
+          </div>
+        </li>
+       <!--3つ目-->
+        <li class = "news-wrapper fadeUp-data">
+          <img src="./image/prtimes.png" alt="prtimes">
+          <div class = "news-content">
+            <div class = "news-item">
+              <time>2022-03-02</time>
+              <a>プレスリリース</a>
+              <a>メディア</a>
+              <a>自社サービス</a>
+            </div>
+            <div class = "news-title">
+              <a class = "change">【プレスリリース】「利益率の高い自社サービスを創出するプロジェクトマネージメント」</a>
+            </div>
+          </div>
+        </li>
+       <!--4つ目-->
+        <li class = "news-wrapper fadeUp-data">
+          <img src="./image/prtimes.png" alt="prtimes">
+          <div class = "news-content">
+            <div class = "news-item">
+              <time>2022-02-24</time>
+              <a>プレスリリース</a>
+              <a>メディア</a>
+              <a>自社サービス</a>
+            </div>
+            <div class = "news-title">
+              <a class = "change">日本開発株式会社、DXを推進するリスキリング(再教育)サービス「Educureエドゥキュア」を導入</a>
+            </div>
+          </div>
+        </li>
+       <!--5つ目-->
+        <li class = "news-wrapper fadeUp-data">
+          <img src="./image/prtimes.png" alt="prtimes">
+          <div class = "news-content">
+            <div class = "news-item">
+              <time>2022-02-22</time>
+              <a>プレスリリース</a>
+              <a>メディア</a>
+              <a>自社サービス</a>
+            </div>
+            <div class = "news-title">
+              <a class = "change">【プレスリリース】販売職・コールセンターに強い人材派遣会社Evand株式会社がDXを推進するリスキリング(再教育)サービス「Educureエドゥキュア」を導入</a>
+            </div>
+          </div>
+        </li>
+      </div>
+      <div class = "wrap">
+        <a class = "other fadeRight-data change otherRight-data">
+          Other news
+          <i class="fa-sharp fa-solid fa-circle-right circle-sign"></i>
+        </a></div>
+    </div>
+    <!--about-->
+    <div id = "about">
+      <div class = "wrap">
+        <h1 class = "fadeDown-data">About Us</h1>
+        <div id = "about-wrapper">
+          <ul class = "fadeDown-data">
+            <!--1-->
+            <li>
+              <div class = "about-head">会社名</div>
+              <div class = "about-info">株式会社LiNew</div>
+            </li>
+            <!--2-->
+            <li>
+              <div class = "about-head">代表</div>
+              <div class = "about-info">CEO 西本弘昌<br>COO 井上陽介</div>
+            </li>
+            <!--3-->
+            <li>
+              <div class = "about-head">資本金</div>
+              <div class = "about-info">500万円</div>
+            </li>
+            <!--4-->
+            <li>
+              <div class = "about-head">事業内容</div>
+              <div class = "about-info">コンサルティング/システム開発、じゅたう開発/教育・研修/アウトソーシング</div>
+            </li>
+            <!--5-->
+            <li>
+              <div class = "about-head">本社住所</div>
+              <div class = "about-info">
+                〒150-0002<br>東京都渋谷3丁目6-20 第５矢木ビル 5F
+                <br><a class = "map">
+                  Google Maps
+                  <i class="fa-sharp fa-solid fa-arrow-up-right-from-square color-none"></i>
+                </a>
+              </div>
+            </li>
+            <!--6-->
+            <li>
+              <div class = "about-head">福岡支社</div>
+              <div class = "about-info">
+                〒812-0011<br>福岡県福岡市博多区博多駅前4-18-19 博多フロントビル703
+                <br><a class = "map">
+                  Google Maps
+                  <i class="fa-sharp fa-solid fa-arrow-up-right-from-square color-none"></i>
+                </a>
+              </div>
+            </li>
+            <!--7-->
+            <li>
+              <div class = "about-head">大阪支社</div>
+              <div class = "about-info">
+                〒542-0081<br>大阪市中央区南船場3-8-7 三栄ムアビル1202
+                <br><a class = "map">
+                  Google Maps
+                  <i class="fa-sharp fa-solid fa-arrow-up-right-from-square color-none"></i>
+                </a>
+              </div>
+            </li>
+            <!--8-->
+            <li>
+              <div class = "about-head">京都支社</div>
+              <div class = "about-info">
+                〒606-8302<br>京都府京都市左京区吉田牛ノ宮町6-1
+                <br><a class = "map">
+                  Google Maps
+                  <i class="fa-sharp fa-solid fa-arrow-up-right-from-square color-none"></i>
+                </a>
+              </div>
+            </li>
+          </ul>
+          <img src="./image/IMG_0218-4.jpeg" alt="office01" class = "fadeUp-data">
+        </div>
+      </div>
+      <div class = "wrap">
+        <a class = "other fadeRight-data change otherRight-data">
+          More info
+          <i class="fa-sharp fa-solid fa-circle-right circle-sign"></i>
+        </a></div>
+    </div>
+    <!--recruit-->
+    <div id = "recruit">
+      <div class = "wrap">
+        <h1 class = "fadeDown-data">Recruit</h1>
+        <h2 class = "fadeUp-data">熱いパッションを持っている<span>あなた</span>を待っています。</h2>
+        <div id = "job-area" class = "fadeUp-data">
+          <p class = "fadeUp-data">現在募集中の職種</p>
+          <div id = "job-item">
+            <a class = "job fadeUp-data" id= "color-back1">
+              エンジニア
+              <i class="fa-sharp fa-solid fa-arrow-right right-sign" id ="white1"></i>
+            </a>
+            <a class = "job fadeUp-data" id = "color-back2">
+              営業
+              <i class="fa-sharp fa-solid fa-arrow-right right-sign" id ="white2"></i>
+            </a>
+            <a class = "job fadeUp-data" id = "color-back3">
+              PR・広報
+              <i class="fa-sharp fa-solid fa-arrow-right right-sign" id = "white3"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class = "wrap">
+        <a class = "other fadeRight-data change otherRight-data">
+          More info
+          <i class="fa-sharp fa-solid fa-circle-right circle-sign"></i>
+        </a>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <div class = "wrap">
+      <div id = "footer-left">
+        <a>
+          <img src="./image/footer_logo.png" alt="">
+        </a>
+        <p>
+          〒150-0002<br>東京都渋谷区渋谷3丁目6-20  第5矢木ビル 5F <br>03-6453-8617
+        </p>
+        <small>© 2022 株式会社LiNew</small>
+      </div>
+      <div id = "footer-right">
+        <nav>
+          <ul>
+            <li class = "change">News</li>
+            <li class = "change">About</li>
+            <li class = "change">Service</li>
+            <li class = "change">Recruit</li>
+            <li class = "change">Contact</li>
+          </ul>
+        </nav>
+        <div id = "footer-item">
+          <a id = "back-color1">
+            educure
+            <i class="fa-sharp fa-solid fa-arrow-right right-sign" id = "icon1"></i>
+          </a>
+          <a id = "back-color2">
+            TECH Passion
+            <i class="fa-sharp fa-solid fa-arrow-right right-sign" id = "icon2"></i>
+          </a>
+          <a id = "back-color3">
+            人生を変える英会話アプリ
+            <i class="fa-sharp fa-solid fa-arrow-right right-sign" id = "icon3"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
